@@ -4,6 +4,8 @@
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
+GIT_USER_NAME=$1
+GIT_USER_EMAIL=$2
 
 set -e
 
@@ -31,13 +33,9 @@ setup_gitconfig() {
   info 'setup gitconfig'
   # if there is no user.email, we'll assume it's a new machine/setup and ask it
   if [ -z "$(git config --global --get user.email)" ]; then
-    user ' - What is your git author name?'
-    read -e user_name
-    user ' - What is your git author email?'
-    read -e user_email
 
-    git config --global user.name "$user_name"
-    git config --global user.email "$user_email"
+    git config --global user.name "$GIT_USER_NAME"
+    git config --global user.email "$GIT_USER_EMAIL"
   elif [ "$(git config --global --get dotfiles.managed)" != "true" ]; then
     # if user.email exists, let's check for dotfiles.managed config.
     # if not true, we'll backup the gitconfig file and set previous user.name, user.email and user.signingkey
@@ -48,7 +46,7 @@ setup_gitconfig() {
     git config --global user.name "$user_name"
     git config --global user.email "$user_email"
 
-    sed -e "s/AUTHORNAME/$user_name/g" -e "s/AUTHOREMAIL/$user_email/g" git/gitconfig.symlink
+    sed -e "s/AUTHORNAME/$GIT_USER_NAME/g" -e "s/AUTHOREMAIL/$GIT_USER_EMAIL/g" git/gitconfig.symlink
   else
     # otherwise this gitconfig was already made by dotfiles
     info "already managed by dotfiles"
