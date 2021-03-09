@@ -1,0 +1,9 @@
+#!/bin/sh
+
+kill_port() {
+  if [[ $@ != "" ]]; then
+    pid=$(lsof -i:$1 -t); kill -TERM $pid || kill -KILL $pid 2> /dev/null
+  else
+    command echo "command error: kill_port <port>"
+  fi
+}
