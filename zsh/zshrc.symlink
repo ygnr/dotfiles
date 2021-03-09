@@ -25,6 +25,10 @@ do
   source $file
 done
 
+# Load nvm
+export NVM_DIR=$HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
