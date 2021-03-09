@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # bootstrap installs things.
 
@@ -32,9 +32,9 @@ setup_gitconfig() {
   # if there is no user.email, we'll assume it's a new machine/setup and ask it
   if [ -z "$(git config --global --get user.email)" ]; then
     user ' - What is your git author name?'
-    read -r user_name
+    read -e user_name
     user ' - What is your git author email?'
-    read -r user_email
+    read -e user_email
 
     git config --global user.name "$user_name"
     git config --global user.email "$user_email"
