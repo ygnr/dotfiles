@@ -26,8 +26,11 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
@@ -39,7 +42,7 @@ unset config_files
 
 # Set theme here
 
-source $ZSH/themes/robbyrussell.zsh-theme
+# source $ZSH/themes/robbyrussell.zsh-theme
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
