@@ -1,5 +1,5 @@
 kenv () {
-  cluster=$(kubectl config get-contexts -o name | grep $1)
+  cluster=$(kubectl config get-contexts -o name | grep -i $1)
   kubectl config use-context $cluster
 }
 
