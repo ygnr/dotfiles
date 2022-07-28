@@ -29,6 +29,10 @@ done
 export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+# Java
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
@@ -69,6 +73,9 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# https://github.com/ohmyzsh/ohmyzsh/issues/31#issuecomment-359728582
+unsetopt nomatch
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys

@@ -5,5 +5,6 @@ PATH=$PATH:/usr/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/sbin
 PATH=$PATH:/sbin
+PATH=$PATH:/Users/yrgokulnath/.daml/bin
 
 export PATH

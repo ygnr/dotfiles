@@ -16,6 +16,7 @@
         ui = true
 [core]
         editor = vim
+	excludesfile = /Users/yrgokulnath/.gitignore_global
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -38,3 +39,8 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[user]
+	name = Gokulnath Reddy
+	email = yrgokulnath@kpmg.com.au
+[init]
+	templatedir = /Users/yrgokulnath/.git-templates
