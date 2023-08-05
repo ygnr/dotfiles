@@ -13,6 +13,10 @@ fi
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
+# Load nvm
+export NVM_DIR=$HOME/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
@@ -24,10 +28,6 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
-
-# Load nvm
-export NVM_DIR=$HOME/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 # Java
 export JAVA_HOME="$(/usr/libexec/java_home)"
